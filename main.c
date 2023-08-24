@@ -7,6 +7,7 @@
  *
  * Return: on scuccess, always EXIT_SUCCESS
  */
+stack_t **global_head;
 int main(int argc, char *argv[])
 {
 	stack_t *head;
