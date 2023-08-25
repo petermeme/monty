@@ -1,5 +1,7 @@
 #include "monty.h"
 
+stack_t **global_head;
+
 /**
  * main - the root of the project
  * @argc: how many arguments were passed to a program
@@ -7,7 +9,6 @@
  *
  * Return: on scuccess, always EXIT_SUCCESS
  */
-stack_t **global_head;
 int main(int argc, char *argv[])
 {
 	stack_t *head;

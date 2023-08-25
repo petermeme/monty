@@ -1,5 +1,5 @@
+#include <string.h>
 #include "monty.h"
-
 /**
  * read_file - reads file, line by line
  * @file: the name of the file
@@ -10,7 +10,7 @@
 void read_file(char *file, stack_t **stack)
 {
 	size_t *len;
-	int read_line;
+	ssize_t read_line;
 	unsigned int num = 0;
 	char *line;
 	FILE *fd;
@@ -22,9 +22,8 @@ void read_file(char *file, stack_t **stack)
 		printf("Error: Can't open file %s\n", file);
 		exit(EXIT_FAILURE);
 	}
-
-	read_line = getline(&line, &len, fd);
-		if (read_line != -1)
+	
+	while ((read_line = getline(&line, &len, fd)) != -1)
 	{
 		command = strtok(line, delims);
 		num++;
@@ -34,7 +33,9 @@ void read_file(char *file, stack_t **stack)
 	}
 
 	if (line)
+	{
 		free(line);
+	}
 
 	fclose(fd);
 }

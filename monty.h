@@ -12,7 +12,7 @@
 #include <string.h>
 
 #define delims "\n \r\t"
-
+#define _GNU_SOURCE
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
